@@ -46,7 +46,7 @@ The function `utcNow(format)` can be used as default value for a parameter, we c
     "parameters": {
         "mydate": {
            "type": "string",
-           "defaultValue": "[utcNow('yyyyMMddTHHmm')]",
+           "defaultValue": "[utcNow('yyyyMMddHHmm')]",
            "metadata": {
                 "description": "description"
             }

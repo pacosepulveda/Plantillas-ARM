@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "fecha": {
+            "type": "string",
+            "defaultValue": "[utcNow('yyyyMMddHHmm')]",
+            "metadata": {
+                "description": "Parámetro fecha para crear una cuenta de almacenamiento con un nombre dinámico"
+            }
+        }, "storageAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Nombre prefijo de la cuenta de almacenamiento"
+            }
+        }, "sufijo": {
+            "type": "string",
+            "defaultValue": "[toLower(uniqueString(resourceGroup().id))]",
+            "metadata": {
+                "description": "Sufijo para el nombre de la cuenta de almacenamiento"
+            }
+        }
+    },
+    "functions": [],
+    "variables": {},
+    "resources": [
+        {
+            "name": "[concat(parameters('storageAccountName'),parameters('sufijo'))]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-04-01",
+            "tags": {
+                "displayName": "[concat(parameters('storageAccountName'),parameters('sufijo'))]"
+            },
+            "location": "[resourceGroup().location]",
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Premium_LRS",
+                "tier": "Premium"
+            }
+        }
+    ],
+    "outputs": {}
+}

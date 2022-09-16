@@ -6,7 +6,7 @@
     }, "adminPassword": {
         "reference": {
             "keyVault": {
-                "id": "/subscriptions/4366001b-bee8-411b-bedb-d4fb856cc75d/resourceGroups/RG-Plantilla/providers/Microsoft.KeyVault/vaults/kvfms-1"
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-Plantilla/providers/Microsoft.KeyVault/vaults/kvfms-1"
             }, "secretName": "adminPasswordVM"
         }
     }, "adminUser": {
